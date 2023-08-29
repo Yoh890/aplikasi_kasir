@@ -9,9 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+    public function dashboard()
+    {
+        return  view('dashboard');
+    }
+
     public function index()
     {
-        $admin =DB::table('tbl_admin')
+        $admin =DB::table('users')
         ->get();
 
         //dd($admin);
@@ -42,15 +47,15 @@ class AdminController extends Controller
 
      public function ubah($id)
     {
-        $admin = Admin::find($id); 
+        $admin = Admin::find($id);
         return  view('admin.edit',compact(['admin']));
     }
-    
+
 
      public function update($id,request $request)
     {
         $admin = Admin::find($id);
-        $admin->update($request->except('token','_method'));  
+        $admin->update($request->except('token','_method'));
         return  redirect('admin');
 
     }
@@ -58,8 +63,8 @@ class AdminController extends Controller
 
     public function hapus($id)
     {
-         $hapus = Admin::find($id); 
-         $hapus->delete(); 
+         $hapus = Admin::find($id);
+         $hapus->delete();
         return  redirect('admin');
     }
 }

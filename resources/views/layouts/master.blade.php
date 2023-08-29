@@ -58,7 +58,7 @@
       </li>
 
       <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-comments"></i>
           <span class="badge badge-danger navbar-badge">3</span>
@@ -141,7 +141,7 @@
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
         </div>
-      </li>
+      </li> --}}
       <li class="nav-item">
         <a class="nav-link" data-widget="fullscreen" href="#" role="button">
           <i class="fas fa-expand-arrows-alt"></i>
@@ -193,15 +193,14 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item menu-is-opening menu-open">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="/dashboard" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
-                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+          </li>
               <li class="nav-item">
                 <a href="/admin" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
@@ -216,20 +215,28 @@
               </li>
               <li class="nav-item">
                 <a href="/jenis" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                    <i class="fa fa-folder-open nav-icon" aria-hidden="true"></i>
                   <p>Jenis</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="/supplier" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
+                    <i class="fa fa-truck nav-icon" aria-hidden="true"></i>
                   <p>Supplier</p>
                 </a>
               </li>
+          <li class="nav-item">
+            <a href="/transaksi" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Transaksi
+                <span class="right badge badge-danger">New</span>
+              </p>
+            </a>
               <li class="nav-item">
                 <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">
-                                        
+
                   <i class="nav-icon fas fa-sign-out-alt"></i>
                   <p>
                     LogOut
@@ -239,8 +246,6 @@
                   @csrf
                 </form>
               </li>
-            </ul>
-          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -255,12 +260,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Aplikasi Kasir</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item active">Aplikasi Kasir</li>
             </ol>
           </div>
         </div>
@@ -290,7 +295,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
-    <strong>Copyright &copy; 2022 - Akhir Zaman <a href="">Yo</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2025 <a href="">Yohan</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

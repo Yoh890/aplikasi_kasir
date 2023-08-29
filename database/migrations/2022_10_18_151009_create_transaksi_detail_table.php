@@ -21,6 +21,7 @@ class CreateTransaksiDetailTable extends Migration
             $table->string('transaksi_jenis');
             $table->integer('transaksi_harga');
             $table->integer('transaksi_jumlah');
+            $table->string('transaksi_detail_status');
             $table->timestamps();
         });
     }

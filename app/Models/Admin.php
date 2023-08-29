@@ -19,6 +19,6 @@ class Admin extends Model
         ];
     }
     use HasFactory;
-    protected $table='tbl_admin';
+    protected $table='users';
     protected $guarded = [];
 }

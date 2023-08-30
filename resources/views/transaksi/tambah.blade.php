@@ -7,7 +7,7 @@
 </div>
 
 
-<form method="POST" action="/transaksi/simpan">
+<form class="col-md-6 col-12" method="POST" action="/transaksi/simpan">
 	@csrf
    <div class="card-body">
     <div class="col-md-6 col-12" style="float: right">
@@ -24,7 +24,7 @@
     <div class="col-md-6 col-12">
       <div class="form-group">
             <label for="">Transaksi Tanggal</label>
-            <input type="date" name="transaksi_tanggal" class="form-control" id="" placeholder=" ">
+            <input type="date" name="transaksi_tanggal" class="form-control" id="transaksi_tanggal" placeholder=" ">
       </div>
     </div>
 
@@ -38,7 +38,10 @@
     <div class="col-md-6 col-12 ">
       <div class="form-group">
             <label for="">Transaksi Status</label>
-            <input type="text" name="transaksi_status" class="form-control" id="" placeholder=" ">
+            <select name="transaksi_status" class="form-control">
+                <option value=lunas selected>LUNAS</option>
+                <option value="hutang">HUTANG</option>
+          </select>
       </div>
     </div>
 
@@ -75,11 +78,12 @@
       </div>
     </div>
 
-
+    <div class="col-md-12 col-12 ">
       <div class="form-group">
             <label for="">Transaksi Detail Status</label>
             <input type="text" name="transaksi_detail_status" class="form-control" id="" placeholder=" ">
       </div>
+    </div>
 
       <div class="card-footer">
             <input type="submit" class="btn btn-primary" value="Simpan">
@@ -87,5 +91,21 @@
   </div>
 </form>
 </div>
+
+<script>
+    window.addEventListener('load', function() {
+        setTodayDate();
+    });
+
+    function setTodayDate() {
+        var today = new Date();
+        var day = String(today.getDate()).padStart(2, '0');
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var year = today.getFullYear();
+        var formattedDate = year + '-' + month + '-' + day;
+
+        document.getElementById('transaksi_tanggal').value = formattedDate;
+    }
+</script>
 
 @endsection

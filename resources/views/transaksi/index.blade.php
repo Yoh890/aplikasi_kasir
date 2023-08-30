@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="card-header">
-                <h3 class="card-title">Tampil Data Transaksi</h3>
+                <h3 class="card-title">Data Transaksi</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -42,6 +42,6 @@
                   </tbody>
                 </table>
               </div>
-             
+
 
 @endsection

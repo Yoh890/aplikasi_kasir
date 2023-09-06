@@ -14,6 +14,7 @@ class BarangController extends Controller
         $barang =DB::table('tbl_barang')
         ->join('tbl_jenis', 'tbl_barang.id_jenis', '=', 'tbl_jenis.id_jenis')
         ->join('tbl_supplier', 'tbl_barang.id_supplier', '=', 'tbl_supplier.id_supplier')
+        ->select('tbl_barang.id', 'tbl_barang.id_barang', 'tbl_barang.barang_kode', 'tbl_barang.barang_nama', 'tbl_jenis.jenis_nama', 'tbl_supplier.supplier_nama', 'tbl_barang.harga_jual', 'tbl_barang.barang_status')
         ->get();
 
         //dd($barang);
@@ -50,15 +51,15 @@ class BarangController extends Controller
 
      public function ubah($id)
     {
-        $barang = Barang::find($id); 
+        $barang = Barang::find($id);
         return  view('barang.edit',compact(['barang']));
     }
-    
+
 
      public function update($id,request $request)
     {
         $barang = Barang::find($id);
-        $barang->update($request->except('token','_method'));  
+        $barang->update($request->except('token','_method'));
         return  redirect('barang');
 
     }
@@ -66,8 +67,8 @@ class BarangController extends Controller
 
     public function hapus($id)
     {
-         $hapus = Barang::find($id); 
-         $hapus->delete(); 
+         $hapus = Barang::find($id);
+         $hapus->delete();
         return  redirect('barang');
     }
 }

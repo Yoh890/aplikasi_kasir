@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css');}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ URL::asset('adminlte/dist/css/adminlte.min.css');}}">
+  <link rel="icon" href="img/kasir.png" type="image/png">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -194,7 +195,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a href="/dashboard" class="nav-link">
+            <a href="{{ route('dashboard') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -202,31 +203,31 @@
             </a>
           </li>
               <li class="nav-item">
-                <a href="/admin" class="nav-link">
+                <a href="{{ route('adm') }}" class="nav-link">
                   <i class="far fa-user nav-icon"></i>
                   <p>Admin</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/barang" class="nav-link">
+                <a href="{{ route('brg') }}" class="nav-link">
                   <i class="nav-icon fas fa-th nav-icon"></i>
                   <p>Barang</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/jenis" class="nav-link">
+                <a href="{{ route('jns') }}" class="nav-link">
                     <i class="fa fa-folder-open nav-icon" aria-hidden="true"></i>
                   <p>Jenis</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="/supplier" class="nav-link">
+                <a href="{{ route('sup') }}" class="nav-link">
                     <i class="fa fa-truck nav-icon" aria-hidden="true"></i>
                   <p>Supplier</p>
                 </a>
               </li>
           <li class="nav-item">
-            <a href="/transaksi" class="nav-link">
+            <a href="{{ route('trk') }}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Transaksi

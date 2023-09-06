@@ -6,7 +6,7 @@
 <h3 class="card-title">Ubah Data Jenis</h3>
 </div>
 
-<form method="POST" action="/jenis/update/{{$jenis->id}}">
+<form method="POST" action="{{ route('jns_update', '$jns->id') }}">
 	@csrf
       @method('put')
    <div class="card-body">

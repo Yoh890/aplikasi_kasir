@@ -6,7 +6,7 @@
 <h3 class="card-title">Ubah Data supplier</h3>
 </div>
 
-<form method="POST" action="/supplier/update/{{$supplier->id}}">
+<form method="POST" action="{{ route('sup_update', '$sup->id') }}">
 	@csrf
       @method('put')
    <div class="card-body">

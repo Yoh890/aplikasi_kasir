@@ -7,7 +7,7 @@
 </div>
 
 
-<form method="POST" action="/supplier/simpan">
+<form method="POST" action="{{ route('sup_simpan') }}">
 	@csrf
    <div class="card-body">
       <div class="form-group">

@@ -6,7 +6,7 @@
 <h3 class="card-title">Ubah Data Barang</h3>
 </div>
 
-<form method="POST" action="/barang/update/{{$barang->id}}">
+<form method="POST" action="{{ route('brg_update', $barang->id) }}">
 	@csrf
       @method('put')
    <div class="card-body">

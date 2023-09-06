@@ -7,7 +7,7 @@
 </div>
 
 
-<form class="col-md-6 col-12" method="POST" action="/transaksi/simpan">
+<form class="col-md-6 col-12" method="POST" action="{{ route('trk_simpan') }}">
 	@csrf
    <div class="card-body">
     <div class="col-md-6 col-12" style="float: right">

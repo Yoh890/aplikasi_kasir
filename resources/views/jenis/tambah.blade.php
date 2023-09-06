@@ -7,7 +7,7 @@
 </div>
 
 
-<form method="POST" action="/jenis/simpan">
+<form method="POST" action="{{ route('jns_simpan') }}">
 	@csrf
    <div class="card-body">
       <div class="form-group">

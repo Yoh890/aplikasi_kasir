@@ -9,6 +9,10 @@ use Alfa6661\AutoNumber\AutoNumberTrait;
 class Transaksi extends Model
 {
     use AutoNumberTrait;
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class, 'id_admin');
+    }
     public function getAutoNumberOptions()
     {
         return [

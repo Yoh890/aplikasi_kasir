@@ -10,7 +10,7 @@
 <form class="col-md-6 col-12" method="POST" action="{{ route('trk_simpan') }}">
 	@csrf
    <div class="card-body">
-    <div class="col-md-6 col-12" style="float: right">
+    {{-- <div class="col-md-6 col-12" style="float: right">
       <div class="form-group">
             <label for="">Admin</label>
             <select name="id_admin" class="form-control">
@@ -20,8 +20,8 @@
                   @endforeach
             </select>
       </div>
-    </div>
-    <div class="col-md-6 col-12">
+    </div> --}}
+    <div class="col-md-12 col-12">
       <div class="form-group">
             <label for="">Transaksi Tanggal</label>
             <input type="date" name="transaksi_tanggal" class="form-control" id="transaksi_tanggal" placeholder=" ">
@@ -48,7 +48,7 @@
     <div class="col-md-6 col-12 " style="float: right">
       <div class="form-group">
             <label for="">Id Barang</label>
-            <select name="id_Barang" class="form-control">
+            <select name="id_barang" class="form-control">
                   <option selected disabled>Silahkan Dipilih</option>
                   @foreach($barang as $row)
                   <option value="{{$row->id_barang}}">{{$row->barang_nama}}</option>

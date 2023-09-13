@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Transaksi;
 use App\Models\Transaksi_detail;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
@@ -31,29 +32,31 @@ class TransaksiController extends Controller
     }
 
 
-    public function simpan(request $request)
-    {
-        //simpan ke transaksi
-        $simpan = Transaksi::create([
-            'id_admin' => $request->id_admin,
-            'transaksi_tanggal' => $request->transaksi_tanggal,
-            'transaksi_nonota' => $request->transaksi_nonota,
-            'transaksi_status' => $request->transaksi_status
-        ]);
-        echo $simpan->id_transaksi;
+    public function simpan(Request $request)
+{
+    $user = Auth::user();
 
-        //simpan ke transaksi detail
-        $simpan = Transaksi_detail::create([
-            'id_transaksi' => $request->id_transaksi,
-            'id_barang' => $request->id_barang,
-            'transaksi_jenis' => $request->transaksi_jenis,
-            'transaksi_harga' => $request->transaksi_harga,
-            'transaksi_jumlah' => $request->transaksi_jumlah,
-            'transaksi_detail_status' => $request->transaksi_detail_status
-        ]);
-        echo $simpan->id_transaksi_detail;
-        return  redirect('transaksi');
-    }
+    // Simpan ke transaksi
+    $transaksi = Transaksi::create([
+        'id_admin' => $user->id,
+        'transaksi_tanggal' => $request->transaksi_tanggal,
+        'transaksi_nonota' => $request->transaksi_nonota,
+        'transaksi_status' => $request->transaksi_status
+    ]);
+
+    // Simpan ke transaksi detail
+    $transaksiDetail = Transaksi_detail::create([
+        'id_transaksi' => $transaksi->id_transaksi, // Menggunakan ID transaksi yang baru saja disimpan
+        'id_barang' => $request->id_barang,
+        'transaksi_jenis' => $request->transaksi_jenis,
+        'transaksi_harga' => $request->transaksi_harga,
+        'transaksi_jumlah' => $request->transaksi_jumlah,
+        'transaksi_detail_status' => $request->transaksi_detail_status
+    ]);
+
+    return redirect('transaksi');
+}
+
 
 
      public function ubah($id)

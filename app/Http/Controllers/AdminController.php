@@ -5,13 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Admin;
+use App\Models\Barang;
+use App\Models\Jenis;
+use App\Models\Supplier;
+use App\Models\Transaksi;
 use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
+
+    public function lp()
+    {
+        return  view('lp');
+    }
+
     public function dashboard()
     {
-        return  view('dashboard');
+        $totalTransaksi = Transaksi::count();
+        $totalBarang = Barang::count();
+        $totalJenis = Jenis::count();
+        $totalSupplier = Supplier::count();
+        return  view('dashboard', compact('totalTransaksi', 'totalBarang', 'totalJenis', 'totalSupplier'));
     }
 
     public function index()

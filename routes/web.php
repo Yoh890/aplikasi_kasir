@@ -27,6 +27,7 @@ use App\Http\Controllers\TransaksiDetailController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [AdminController::class,'lp'])->name('index');
 Route::middleware(['auth'])->group(function(){
 // Route::get('/', function () {
 //     return view('welcome');
@@ -34,7 +35,6 @@ Route::middleware(['auth'])->group(function(){
 
 
 ////->Bagian Admin
-Route::get('/', [AdminController::class,'dashboard'])->name('dashboard');
 Route::get('/dashboard', [AdminController::class,'dashboard'])->name('dashboard');
 Route::get('/admin', [AdminController::class,'index'])->name('adm');
 Route::get('/admin/tambah', [AdminController::class,'tambah'])->name('adm_tambah');

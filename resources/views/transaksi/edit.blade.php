@@ -7,7 +7,7 @@
 </div>
 
 
-<form method="POST" action="{{ route('trk_simpan', '$trk->id') }}">
+<form method="POST" action="{{ route('trk_simpan', $transaksi->id) }}">
       @csrf
    <div class="card-body">
       <div class="form-group">

@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" id='login' action="{{ route('login') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -36,6 +36,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label class="col-md-4 col-form-label text-md-end">Captcha</label>
+                            <div class="col md-6">
+                                {!! NoCaptcha::display() !!}
+                                {!! NoCaptcha::renderJs() !!}
+                                @if ($errors->has('g-recaptcha-response'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                         </div>
 
@@ -70,4 +83,9 @@
         </div>
     </div>
 </div>
+<script>
+    function onSubmit(token) {
+        document.getElementById("login").submit();
+    }
+</script>
 @endsection

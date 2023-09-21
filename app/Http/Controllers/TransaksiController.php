@@ -15,7 +15,7 @@ class TransaksiController extends Controller
     {
         $transaksi =DB::table('tbl_transaksi')
         ->get();
-        $dt = Transaksi::with('admin')->paginate(2);
+        $dt = Transaksi::with('admin')->get();
 
         //dd($transaksi);
         return  view('transaksi.index',compact('transaksi'));

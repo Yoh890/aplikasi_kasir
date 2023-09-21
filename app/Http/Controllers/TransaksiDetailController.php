@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Admin;
 use Illuminate\Support\Facades\DB;
 use App\Models\Transaksi_detail;
 use Illuminate\Http\Request;
@@ -15,5 +17,14 @@ class TransaksiDetailController extends Controller
 
         //dd($transaksi);
         return view('transaksidetail.index',compact('transaksidetail'));
+    }
+
+    public function tambah()
+    {
+        $admin = DB::table("users")->get();
+        $barang = DB::table("tbl_barang")
+        ->get();
+        $adm = Admin::all();
+        return  view('transaksidetail.tambah', compact(['barang','adm','admin']));
     }
 }

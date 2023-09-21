@@ -23,7 +23,7 @@
       <div class="form-group">
             <label for="">Id Jenis</label>
             <select name="id_jenis" class="form-control" required>
-                  <option>Silahkan Dipilih</option>
+                  <option disabled>Silahkan Dipilih</option>
                   @foreach($jenis as $j)
                   <option value="{{$j -> id_jenis}}">{{$j -> jenis_nama}}</option>
                   @endforeach
@@ -33,7 +33,7 @@
       <div class="form-group">
             <label for="">Id Supplier</label>
              <select name="id_supplier" class="form-control" required>
-                  <option>Silahkan Dipilih</option>
+                  <option disabled>Silahkan Dipilih</option>
                   @foreach($supplier as $s)
                   <option value="{{$s -> id_supplier}}">{{$s -> supplier_nama}}</option>
                   @endforeach

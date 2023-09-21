@@ -52,7 +52,13 @@ class BarangController extends Controller
      public function ubah($id)
     {
         $barang = Barang::find($id);
-        return  view('barang.edit',compact(['barang']));
+
+        $supplier =DB::table('tbl_supplier')
+        ->get();
+        $jenis =DB::table('tbl_jenis')
+        ->get();
+
+        return  view('barang.edit',compact(['barang','supplier','jenis']));
     }
 
 
